@@ -1,0 +1,32 @@
+language: python
+python:
+    - "2.7"
+    - "3.4"
+    - "3.5"
+    - "3.6"
+    - "3.7"
+    - "3.8"
+
+before_install:
+    # Pull dependencies from GitHub
+    - cd ..
+    - git clone --depth=1 --branch=master git://github.com/textX/Arpeggio.git
+    - pip install -e Arpeggio
+    - git clone --depth=1 --branch=master git://github.com/textX/textX.git
+    - pip install -e textX
+    # Dependencies for startproject command
+    - git clone --depth=1 --branch=master git://github.com/textX/textx-lang-questionnaire.git
+    - pip install -e textx-lang-questionnaire
+    - git clone --depth=1 --branch=master git://github.com/textX/textx-gen-que-txproject.git
+    - pip install -e textx-gen-que-txproject
+    # Enter textX-dev directory
+    - cd textX-dev
+
+install:
+    - ./install-all-dev.sh
+
+script:
+    - ./runtests.sh
+
+after_success:
+    - coveralls
