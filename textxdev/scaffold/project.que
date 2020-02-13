@@ -1,0 +1,15 @@
+Q[type]: Project type
+  1[lang]. Language project
+  2[gen]. Generator project
+
+Q[package]: Package name
+  ___ /[a-z][a-z0-9_]*$/
+
+Q[author]: Author name
+  ___
+
+Q[author_email]: Author email
+  ___
+
+Q[description]: Short project description
+  ___

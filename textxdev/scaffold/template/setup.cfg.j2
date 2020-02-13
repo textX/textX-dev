@@ -1,0 +1,51 @@
+[metadata]
+name = {{project}}
+author = {{author}}
+author_email = {{author_email}}
+license = MIT
+description = {{description}}
+keywords = textX
+url = 
+long_description = file: README.md
+classifiers =
+    Development Status :: 2 - Pre-Alpha
+    Intended Audience :: Developers
+    Intended Audience :: Information Technology
+    Intended Audience :: Science/Research
+    Topic :: Software Development :: Interpreters
+    Topic :: Software Development :: Compilers
+    Topic :: Software Development :: Libraries :: Python Modules
+    License :: OSI Approved :: MIT License
+    Natural Language :: English
+    Programming Language :: Python :: 3
+    Programming Language :: Python :: 3.4
+    Programming Language :: Python :: 3.5
+    Programming Language :: Python :: 3.6
+    Programming Language :: Python :: 3.7
+    Programming Language :: Python :: 3.8
+    Operating System :: OS Independent
+
+[options]
+packages = {{package}}
+zip_safe = False
+install_requires = textX
+include_package_data = True
+tests_require = flake8; tox; coverage; coveralls; pytest
+package_dir =
+    {{package}} = {{package}}
+test_suite = tests
+setup_requires = setuptools_scm;
+
+[options.entry_points]
+{% if project_type=="language" %}
+textx_languages = {{language}} = {{package}}:{{language}}
+{% else %}
+textx_generators = {{generator}} = {{package}}:{{generator}}
+{% endif %}
+
+[bdist_wheel]
+universal = 1
+
+[flake8]
+exclude = .git/*,.eggs/*,.tox/*,
+          build/*,dist/*
