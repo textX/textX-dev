@@ -8,6 +8,12 @@ from appdirs import AppDirs
 from textx import generator
 from txquestionnaire import questionnaire_interpret
 
+# Compatibility with Python 2.7
+try:
+    FileExistsError
+except NameError:
+    FileExistsError = OSError
+
 
 THIS_FOLDER = os.path.dirname(__file__)
 
