@@ -51,7 +51,7 @@ class FileCount:
         self.skipped = 0
 
     def __str__(self):
-        return f'{self.created}/{self.overwritten}/{self.skipped}'
+        return '{}/{}/{}'.format(self.created, self.overwritten, self.skipped)
 
 
 def scaffold(templates_path, target_path, config, overwrite=False):
@@ -106,10 +106,10 @@ def scaffold(templates_path, target_path, config, overwrite=False):
             if overwrite or not os.path.exists(target_file):
 
                 if os.path.exists(target_file):
-                    click.echo(f'Overwriting {target_file}')
+                    click.echo('Overwriting {}'.format(target_file))
                     file_count.overwritten += 1
                 else:
-                    click.echo(f'Creating {target_file}')
+                    click.echo('Creating {}'.format(target_file))
                     file_count.created += 1
 
                 if src_file.endswith('.j2'):
@@ -122,7 +122,7 @@ def scaffold(templates_path, target_path, config, overwrite=False):
                     shutil.copy(src_file, target_file)
 
             else:
-                click.echo(f'Skipping {target_file}')
+                click.echo('Skipping {}'.format(target_file))
                 file_count.skipped += 1
 
     click.echo('Done. Files created/overwritten/skipped = {}'
