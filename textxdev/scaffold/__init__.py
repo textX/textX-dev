@@ -72,6 +72,7 @@ def scaffold(templates_path, target_path, config, overwrite=False):
     env = Environment(loader=FileSystemLoader(searchpath=templates_path),
                       trim_blocks=True, lstrip_blocks=True)
     file_count = FileCount()
+    config['project_name'] = os.path.basename(os.path.abspath(target_path))
 
     def should_skip(fname):
         return ('__lang__' in fname and config['type'] == 'gen') \
