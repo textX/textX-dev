@@ -1,5 +1,5 @@
 [metadata]
-name = {{project}}
+name = {{project_name}}
 author = {{author}}
 author_email = {{author_email}}
 license = MIT
@@ -7,6 +7,7 @@ description = {{description}}
 keywords = textX
 url = 
 long_description = file: README.md
+long_description_content_type = text/markdown
 classifiers =
     Development Status :: 2 - Pre-Alpha
     Intended Audience :: Developers
@@ -28,24 +29,34 @@ classifiers =
 [options]
 packages = {{package}}
 zip_safe = False
-install_requires = textX
+install_requires =
+    textX
 include_package_data = True
-tests_require = flake8; tox; coverage; coveralls; pytest
 package_dir =
     {{package}} = {{package}}
-test_suite = tests
-setup_requires = setuptools_scm;
+
+[options.extras_require]
+dev =
+    wheel
+    twine
+test =
+    flake8
+    tox
+    coverage
+    coveralls
+    pytest
 
 [options.entry_points]
-{% if project_type=="language" %}
-textx_languages = {{language}} = {{package}}:{{language}}
+{% if type=="lang" %}
+textx_languages =
+    {{package}} = {{package}}:{{package}}_language
 {% else %}
-textx_generators = {{generator}} = {{package}}:{{generator}}
+textx_generators =
+    {{package}} = {{package}}:{{language}}_generate_{{target}}
 {% endif %}
 
 [bdist_wheel]
 universal = 1
 
 [flake8]
-exclude = .git/*,.eggs/*,.tox/*,
-          build/*,dist/*
+exclude = .git/*,.eggs/*,.tox/*, build/*, dist/*, venv/*
