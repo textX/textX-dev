@@ -1,5 +1,5 @@
 from functools import partial
-from textx import generator, gen_file
+from textx import generator, gen_file, get_output_filename
 
 __version__ = "0.1.0.dev"
 
@@ -9,7 +9,7 @@ def {{language}}_generate_{{target}}(metamodel, model, output_path,
                                      overwrite, debug, **custom_args):
     "Generator for generating {{target}} from {{language}} descriptions"
 
-    output_file = get_output_file(model.file_name, output_path, '{{extension}}')
+    output_file = get_output_filename(model.file_name, output_path, '{{extension}}')
     gen_file(model.file_name, output_file,
              partial(generator_callaback, model, output_file),
              overwrite,

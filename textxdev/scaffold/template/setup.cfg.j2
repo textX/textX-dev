@@ -49,7 +49,7 @@ test =
 [options.entry_points]
 {% if type=="lang" %}
 textx_languages =
-    {{package}} = {{package}}:{{package}}_language
+    {{language}} = {{package}}:{{language}}_language
 {% else %}
 textx_generators =
     {{package}} = {{package}}:{{language}}_generate_{{target}}
