@@ -66,7 +66,7 @@ def scaffold(templates_path, target_path, config, overwrite=False):
         templates_path (str): A path to templates used for scaffolding.
         target_path (str): The path where scaffolding should generate files.
         config (dict): A config for scaffolding contains any data necessary
-            for rendering files using jinja2 engine.
+            for rendering files using Jinja engine.
         overwrite (bool): If the target files should be overwritten.
     """
     env = Environment(loader=FileSystemLoader(searchpath=templates_path),
@@ -97,9 +97,9 @@ def scaffold(templates_path, target_path, config, overwrite=False):
                 if ph_value is not None:
                     target_file = target_file.replace(placeholder, ph_value)
 
-            # Strip j2 extension from target path.
-            if target_file.endswith('.j2'):
-                target_file = target_file[:-3]
+            # Strip `jinja` extension from target path.
+            if target_file.endswith('.jinja'):
+                target_file = '.'.join(target_file.split('.')[:-1])
             # Strip __lang__ / __gen__ from path
             target_file = target_file.replace('__lang__', '')\
                                      .replace('__gen__', '')
@@ -119,8 +119,8 @@ def scaffold(templates_path, target_path, config, overwrite=False):
                     click.echo('Creating {}'.format(target_file))
                     file_count.created += 1
 
-                if src_file.endswith('.j2'):
-                    # Render using Jinja2 template
+                if src_file.endswith('.jinja'):
+                    # Render using Jinja template
                     with open(target_file, 'w') as f:
                         f.write(
                             env.get_template(src_rel_path).render(**config))
