@@ -17,6 +17,8 @@ before_install:
     # Dependencies for startproject command
     - git clone --depth=1 --branch=master git://github.com/textX/textx-lang-questionnaire.git
     - pip install -e textx-lang-questionnaire
+    - git clone --depth=1 --branch=master git://github.com/textX/textX-jinja
+    - pip install -e textX-jinja
     # Enter textX-dev directory
     - cd textX-dev
 
