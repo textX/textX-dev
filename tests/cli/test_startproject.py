@@ -54,7 +54,8 @@ def test_startproject_generator():
     ], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     output = p.communicate(input='2\nnmygen\njinja2\nmygenpackage\nIgor Dejanovic\nmyemail@somewhere.com\nThis is a short description\n'.encode('utf-8'))  # noqa
-    assert 'genprojecttest/mygenpackage/__init__.py\nDone.' in output[0].decode('utf-8')
+    assert 'genprojecttest/mygenpackage/__init__.py\nDone.' \
+        in output[0].decode('utf-8')
     assert os.path.exists(project_root)
     assert os.path.exists(os.path.join(project_root, 'CHANGELOG.md'))
     with open(os.path.join(project_root,
