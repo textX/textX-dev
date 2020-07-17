@@ -1,3 +1,4 @@
+import os
 from functools import partial
 from textx import generator, gen_file, get_output_filename
 
@@ -5,13 +6,12 @@ __version__ = "0.1.0.dev"
 
 
 @generator('{{language}}', '{{target}}')
-def {{language}}_generate_{{target}}(metamodel, model, output_path,
-                                     overwrite, debug, **custom_args):
+def {{language}}_generate_{{target}}(metamodel, model, output_path, overwrite, debug, **custom_args):
     "Generator for generating {{target}} from {{language}} descriptions"
 
     output_file = get_output_filename(model.file_name, output_path, '{{extension}}')
     gen_file(model.file_name, output_file,
-             partial(generator_callaback, model, output_file),
+             partial(generator_callback, model, output_file),
              overwrite,
              success_message='To convert to png run "dot -Tpng -O {}"'
              .format(os.path.basename(output_file)))
