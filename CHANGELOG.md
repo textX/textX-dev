@@ -21,7 +21,12 @@ please take a look at related PRs and issues and see if the change affects you.
 ### Changed
 
 
-[Unreleased]: https://github.com/textX/textX/compare/v1.0...HEAD
+## [0.1.2]
+
+- Initial release
+
+
+[Unreleased]: https://github.com/textX/textX/compare/0.1.2...HEAD
 
 
 [keepachangelog]: https://keepachangelog.com/
