@@ -19,7 +19,7 @@ THIS_FOLDER = os.path.dirname(__file__)
 def que_gen_txproject(metamodel, model, output_path, overwrite, debug):
     "Generate textX project from Questionnaire model."
 
-    # 1. Try to load config data from the user folder
+    # Try to load config data from the user folder
     dirs = AppDirs("textX")
     config_file = os.path.join(dirs.user_config_dir, 'scaffolding.json')
     if os.path.exists(config_file):
@@ -28,12 +28,15 @@ def que_gen_txproject(metamodel, model, output_path, overwrite, debug):
     else:
         config = {}
 
-    # 2. Interpret model and collect answers
+    # Interpret model and collect answers
     config = questionnaire_interpret(model, config)
+
+    # Configuration
     config['lang'] = config['type'] == 'lang'
     config['gen'] = config['type'] == 'gen'
+    config['project_name'] = os.path.basename(os.path.abspath(output_path))
 
-    # 3. Cache collected data for futher use
+    # Cache collected data for futher use
     try:
         os.makedirs(os.path.dirname(config_file))
     except FileExistsError:
@@ -41,6 +44,6 @@ def que_gen_txproject(metamodel, model, output_path, overwrite, debug):
     with open(config_file, 'w+') as f:
         json.dump(config, f)
 
-    # 4. Do scaffolding with the new data by using template project
+    # Do scaffolding with the new data by using template project
     template_folder = os.path.join(THIS_FOLDER, 'template')
     textx_jinja_generator(template_folder, output_path, config, overwrite)
