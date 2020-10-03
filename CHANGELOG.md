@@ -16,7 +16,8 @@ please take a look at related PRs and issues and see if the change affects you.
 
 ### Added
 
-- Add option to package grammar (*.tx) files (https://github.com/textx/textX-dev/commit/5f09f67)
+- Add option to package grammar (*.tx) files
+  ([5f09f67](https://github.com/textx/textX-dev/commit/5f09f67))
 
 ### Changed
 
