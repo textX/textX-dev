@@ -16,12 +16,24 @@ please take a look at related PRs and issues and see if the change affects you.
 
 ### Added
 
-### Fixed
+- Add option to package grammar (*.tx) files (https://github.com/textx/textX-dev/commit/5f09f67)
 
 ### Changed
 
+### Fixed
 
-## [0.1.2]
+
+## [0.1.4] (Released: 2020-08-05)
+
+- Added `project_name` to `config`
+
+
+## [0.1.3] (Released: 2020-08-05)
+
+- Fixed wheel packaging of template files
+
+
+## [0.1.2] (Released: 2020-08-03)
 
 - Initial release
 
