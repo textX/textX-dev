@@ -9,8 +9,8 @@ __version__ = "0.1.0.dev"
 def {{language}}_generate_{{target}}(metamodel, model, output_path, overwrite, debug, **custom_args):
     "Generator for generating {{target}} from {{language}} descriptions"
 
-    output_file = get_output_filename(model.file_name, output_path, '{{extension}}')
-    gen_file(model.file_name, output_file,
+    output_file = get_output_filename(model._tx_filename, output_path, '{{extension}}')
+    gen_file(model._tx_filename, output_file,
              partial(generator_callback, model, output_file),
              overwrite,
              success_message='To convert to png run "dot -Tpng -O {}"'
