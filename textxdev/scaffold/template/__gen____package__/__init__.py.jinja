@@ -1,6 +1,7 @@
 import os
 from functools import partial
-from textx import generator, gen_file, get_output_filename
+from textx import generator
+from textx.generators import gen_file, get_output_filename
 
 __version__ = "0.1.0.dev"
 
@@ -13,7 +14,7 @@ def {{language}}_generate_{{target}}(metamodel, model, output_path, overwrite, d
     gen_file(model._tx_filename, output_file,
              partial(generator_callback, model, output_file),
              overwrite,
-             success_message='To convert to png run "dot -Tpng -O {}"'
+             success_message='Done.'
              .format(os.path.basename(output_file)))
 
 
