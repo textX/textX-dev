@@ -16,10 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python {% raw %}${{ matrix.python-version }}{% endraw %}
       uses: actions/setup-python@v2
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
     - name: Install test dependencies
       run: |
         ./install-test.sh
@@ -38,6 +38,6 @@ jobs:
         ./runtests.sh
     - name: Coveralls
       env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        COVERALLS_REPO_TOKEN: {% raw %}${{ secrets.COVERALLS_REPO_TOKEN }}{% endraw %}
       run: |
         coveralls
