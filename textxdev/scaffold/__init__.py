@@ -1,29 +1,24 @@
-import os
+import contextlib
 import json
+import os
+
 from appdirs import AppDirs
 from textx import generator
-from txquestionnaire import questionnaire_interpret
 from textxjinja import textx_jinja_generator
-
-# Compatibility with Python 2.7
-try:
-    FileExistsError
-except NameError:
-    FileExistsError = OSError
-
+from txquestionnaire import questionnaire_interpret
 
 THIS_FOLDER = os.path.dirname(__file__)
 
 
 @generator('questionnaire', 'txproject')
-def que_gen_txproject(metamodel, model, output_path, overwrite, debug):
+def que_gen_txproject(_metamodel, model, output_path, overwrite, _debug):
     "Generate textX project from Questionnaire model."
 
     # Try to load config data from the user folder
     dirs = AppDirs("textX")
     config_file = os.path.join(dirs.user_config_dir, 'scaffolding.json')
     if os.path.exists(config_file):
-        with open(config_file, 'r') as f:
+        with open(config_file) as f:
             config = json.load(f)
     else:
         config = {}
@@ -37,10 +32,8 @@ def que_gen_txproject(metamodel, model, output_path, overwrite, debug):
     config['project_name'] = os.path.basename(os.path.abspath(output_path))
 
     # Cache collected data for futher use
-    try:
+    with contextlib.suppress(FileExistsError):
         os.makedirs(os.path.dirname(config_file))
-    except FileExistsError:
-        pass
     with open(config_file, 'w+') as f:
         json.dump(config, f)
 

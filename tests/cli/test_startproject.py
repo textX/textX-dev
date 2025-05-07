@@ -3,10 +3,10 @@ Tests for `startproject` command.
 """
 import os
 import sys
-import subprocess
+
 import pexpect
-from textx.cli import textx
 from click.testing import CliRunner
+from textx.cli import textx
 
 this_folder = os.path.abspath(os.path.dirname(__file__))
 
@@ -113,8 +113,7 @@ def test_startproject_generator():
         assert os.path.exists(project_root)
         assert os.path.exists(os.path.join(project_root, 'CHANGELOG.md'))
 
-        with open(os.path.join(project_root, 'mygenpackage', '__init__.py'),
-                  'r') as f:
+        with open(os.path.join(project_root, 'mygenpackage', '__init__.py')) as f:
             assert "@generator('mylang', 'jinja2')" in f.read()
             
     finally:

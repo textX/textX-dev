@@ -1,9 +1,10 @@
 import os
+
 import click
 from textx import metamodel_for_language
+
 import textxdev.scaffold
 from textxdev.scaffold import que_gen_txproject
-
 
 MODEL_FOLDER = os.path.abspath(os.path.dirname(textxdev.scaffold.__file__))
 
