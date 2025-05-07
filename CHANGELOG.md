@@ -14,6 +14,9 @@ please take a look at related PRs and issues and see if the change affects you.
 
 ## [Unreleased]
 
+
+## [0.2.0] (Released: 2025-05-07)
+
 ### Changed
 - moved to pyproject.toml
 - removed : from questions
@@ -54,7 +57,10 @@ please take a look at related PRs and issues and see if the change affects you.
 - Initial release
 
 
-[Unreleased]: https://github.com/textX/textX-dev/compare/0.1.4...HEAD
+[Unreleased]: https://github.com/textX/textX-dev/compare/0.2.0...HEAD
+[0.2.0]: https://github.com/textX/textX-dev/compare/0.1.6...0.2.0
+[0.1.6]: https://github.com/textX/textX-dev/compare/0.1.5...0.1.6
+[0.1.5]: https://github.com/textX/textX-dev/compare/0.1.4...0.1.5
 [0.1.4]: https://github.com/textX/textX-dev/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/textX/textX-dev/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/textX/textX-dev/tree/0.1.2
