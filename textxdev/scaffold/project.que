@@ -2,16 +2,16 @@ Q[type]: Project type
   1[lang]. Language project
   2[gen]. Generator project
 
-Q[type=lang, language]: Language ID:
+Q[type=lang, language]: Language ID
   ___ /[a-z][a-z0-9_]*$/
 
-Q[type=lang, extension]: File extension (e.g. "*.que"):
+Q[type=lang, extension]: File extension (e.g. "*.que")
   ___ /\*\.[a-z0-9]+/
 
-Q[type=gen, extension]: File extension (e.g. "que"):
+Q[type=gen, extension]: File extension (e.g. "que")
   ___ /[a-z0-9]+/
 
-Q[type=gen, language]: Generator for language:
+Q[type=gen, language]: Generator for language
   ___ /[a-z][a-z0-9_]*$/
 
 Q[type=gen, target]: Target platform

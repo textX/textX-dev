@@ -16,6 +16,7 @@ please take a look at related PRs and issues and see if the change affects you.
 
 ### Changed
 - moved to pyproject.toml
+- removed : from questions
 
 
 ## [0.1.6] (Released: 2025-04-11)
