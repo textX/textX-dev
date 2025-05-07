@@ -14,11 +14,20 @@ please take a look at related PRs and issues and see if the change affects you.
 
 ## [Unreleased]
 
-### Added
-
 ### Changed
+- moved to pyproject.toml
+
+
+## [0.1.6] (Released: 2025-04-11)
+
+### Added
+- generate tests folder
+- generate GitHub Actions config
+- config for file extensions if project type is generator
+
 
 ### Fixed
+- getting model file name
 
 
 ## [0.1.5] (Released: 2020-10-05)

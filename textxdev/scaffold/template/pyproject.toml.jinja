@@ -1,0 +1,74 @@
+[project]
+name = "{{project_name}}"
+version = "0.1.0"
+description = "{{description}}"
+authors = [
+    {name = "{{author}}", email = "{{author_email}}"},
+]
+maintainers = [
+    {name = "{{author}}", email = "{{author_email}}"},
+]
+readme = "README.md"
+license = {text = "MIT"}
+keywords = ["textX", "DSL"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+requires-python = ">=3.10"
+dependencies = [
+    "textX>=4.1.0",
+]
+
+[project.urls]
+Homepage = "TODO"
+Repository = "TODO"
+
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core >=3.8.0,<4"]
+
+[tool.flit.module]
+name = "{{package}}"
+
+[tool.flit.sdist]
+exclude = ["**/.*"]
+
+{% if type=="lang" %}
+[project.entry-points.textx_languages]
+{{language}} = "{{package}}:{{language}}_language"
+{% else %}
+[project.entry-points.textx_generators]
+{{package}} = "{{package}}:{{language}}_generate_{{target}}"
+{% endif %}
+
+[tool.ruff]
+line-length = 90
+indent-width = 4
+
+[tool.ruff.lint]
+# https://docs.astral.sh/ruff/linter/#rule-selection
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
