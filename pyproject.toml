@@ -44,8 +44,21 @@ Homepage = "https://github.com/textX/textX-dev"
 Repository = "https://github.com/textX/textX-dev"
 
 [project.optional-dependencies]
-dev = ["wheel", "ruff"]
-test = ["coverage==7.5.3", "pytest==8.2.2", "pytest-cov==5.0.0"]
+dev = [
+    "wheel",
+    "ruff",
+
+    "pexpect",
+    "coverage==7.5.3",
+    "pytest==8.2.2",
+    "pytest-cov==5.0.0"
+]
+test = [
+    "pexpect",
+    "coverage==7.5.3",
+    "pytest==8.2.2",
+    "pytest-cov==5.0.0"
+]
 
 [build-system]
 build-backend = "flit_core.buildapi"
